@@ -19,7 +19,7 @@ st.set_page_config(page_title="AIBot for Business Data",
                    layout="wide",
                    page_icon=":books::parrot:")
 
-st.title("AI Chatbot for Business Data Analysis")
+st.title("AI Chatbot for Business Intelligence & Analytics")
 
 st.sidebar.markdown(
     """
