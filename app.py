@@ -14,7 +14,9 @@ from scipy import stats
 # if "openai_key" not in st.session_state:
 #    st.session_state.openai_key = None
 
-st.session_state.openai_key = os.getenv("OPENAI_API_KEY")
+os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
+st.session_state.openai_key = os.getenv('OPENAI_API_KEY')
+
 
 st.set_page_config(page_title="AIBot for Business Data",
                    layout="wide",
