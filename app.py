@@ -10,10 +10,11 @@ import os
 import statsmodels.api
 from scipy import stats
 
-## Don't initialize session_state variables here
-## should initialize them after API key
-# st.session_state.openai_key = None
-# st.session_state.dl = []
+## should initialize st.state variables in below way
+# if "openai_key" not in st.session_state:
+#    st.session_state.openai_key = None
+
+st.session_state.openai_key = os.getenv("OPENAI_API_KEY")
 
 st.set_page_config(page_title="AIBot for Business Data",
                    layout="wide",
@@ -55,7 +56,8 @@ if len(msgs.messages) == 0:
 if "dl" not in st.session_state:
     st.session_state["dl"] = []
 
-st.session_state.openai_key = "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"
+#st.session_state.openai_key = "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"
+
 with st.sidebar:
     # if st.session_state.get("openai_key") is None:
     #     st.session_state.openai_key = None
