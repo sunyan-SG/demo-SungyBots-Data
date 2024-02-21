@@ -23,11 +23,14 @@ st.title("AI Chatbot for Business Intelligence & Analytics")
 
 st.sidebar.markdown(
     """
+    ### Message from SungyBots:
+    Very welcome to try the chatbot developed by SungyBots!!
+    Any further queries, feel free contact us: contact@SungyBots.com
+    
     ### Instructions:
-    1. Submit your OpenAI API Key (Go to https://platform.openai.com/api-keys to create one if you don't have yet)
-    2. Browse and upload your data files: .csv or .xlsx
-    3. Click Process to read data
-    4. Type your question in the box to get more insights
+    1. Browse and upload your data files: .csv or .xlsx
+    2. Click Process to read data
+    3. Type your question in the box to get more insights
     """
 )
 
@@ -49,23 +52,23 @@ if len(msgs.messages) == 0:
     msgs.add_ai_message("How can I help you today?")
 
 # set up "dl"
-# if "dl" not in st.session_state:
-#     st.session_state["dl"] = []
+if "dl" not in st.session_state:
+    st.session_state["dl"] = []
 
+st.session_state.openai_key = "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"
 with st.sidebar:
-    #st.subheader("Your data")
-    if st.session_state.get("openai_key") is None:
-        st.session_state.openai_key = None
-        st.session_state.uploaded_files = []
-        #st.session_state.prompt_history = []
-        #st.session_state.AI_response_history = []
-        st.session_state.df = None
-        st.session_state.dl = []
-
-        with st.form("API key"):
-            key = st.text_input("OpenAI API Key", value="", type="password")
-            if st.form_submit_button("Submit"):
-                st.session_state.openai_key = key
+    # if st.session_state.get("openai_key") is None:
+    #     st.session_state.openai_key = None
+    #     st.session_state.uploaded_files = []
+    #     #st.session_state.prompt_history = []
+    #     #st.session_state.AI_response_history = []
+    #     st.session_state.df = None
+    #     st.session_state.dl = []
+    #
+    #     with st.form("API key"):
+    #         key = st.text_input("OpenAI API Key", value="", type="password")
+    #         if st.form_submit_button("Submit"):
+    #             st.session_state.openai_key = key
 
     if st.session_state.get("openai_key") is not None:
 
